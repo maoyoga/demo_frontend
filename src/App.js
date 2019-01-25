@@ -23,7 +23,7 @@ class App extends Component {
   }
   change = () => {
     this.setState({
-      a: 222222
+      a: 2222222
     }, function() {
     })
     console.log(this.state.a)

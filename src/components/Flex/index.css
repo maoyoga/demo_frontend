@@ -1,0 +1,14 @@
+ul {
+	background-color: pink;
+	width: 300px;
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+	overflow-x: auto;
+	height: 50px;
+}
+
+ul li {
+	width: 100px;
+	flex-shrink: 0;
+}

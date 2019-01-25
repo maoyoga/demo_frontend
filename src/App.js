@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import JSONP from './demo/jsonp.js'
+import { renderRoutes } from "react-router-config";
+
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -12,7 +13,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <JSONP></JSONP>
+        <h1>Welcome To Yoga's Home</h1>
+        {renderRoutes(this.props.route.routes)}
+        <footer>
+          contact number: 18606518755
+        </footer>
       </div>
     );
   }
@@ -20,9 +25,7 @@ class App extends Component {
     this.setState({
       a: 2222
     }, function() {
-      debugger
     })
-    debugger
     console.log(this.state.a)
   }
 }

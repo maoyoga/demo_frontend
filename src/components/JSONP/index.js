@@ -10,7 +10,7 @@ class JSONP extends Component {
   render() {
     return (
       <div className="App">
-        <h1 className="App-title" onClick={this.change}>测试react执行过程, {this.state.a}</h1>
+        <h2 className="App-title" onClick={this.change}>测试react执行过程, {this.state.a}</h2>
         <h2><input type='button' value='jsonp get获取信息' onClick={this.getJsonpInfo}/></h2>
         <h2><input type='button' value='post请求信息' onClick={this.getJsonpPostInfo}/></h2>
         <h2><input type='button' value='cros获取信息' onClick={this.getNormalInfo}/></h2>

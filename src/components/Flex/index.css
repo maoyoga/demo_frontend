@@ -12,3 +12,12 @@ ul li {
 	width: 100px;
 	flex-shrink: 0;
 }
+
+.middleWrapper {
+	width: 300px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: pink;
+}

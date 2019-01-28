@@ -4,10 +4,12 @@ import './index.css';
 import App from './App';
 import Flex from './components/Flex'
 import Jsonp from './components/JSONP'
+import Inherit from './components/Inherit'
 import Home from './home'
 // import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
+
 const routes = [
 	{
 		component: App,
@@ -24,6 +26,10 @@ const routes = [
 			{
 				path: "/jsonp",
 				component: Jsonp
+			},
+			{
+				path: '/inherit',
+				component: Inherit
 			}
 		]
 	}

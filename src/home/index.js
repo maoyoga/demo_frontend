@@ -8,7 +8,8 @@ class Home extends Component {
 			<div className='home'>
 				<div className='left'>
 					<div><Link to="/jsonp">JSONP</Link></div>
-					<div><Link to="/flex">flex</Link></div>
+					<div><Link to="/flex">flex布局</Link></div>
+					<div><Link to="/inherit">继承</Link></div>
 				</div>
 				<div className='middle'>11</div>
 				<div className='right'>ss</div>

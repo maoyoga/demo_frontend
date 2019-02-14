@@ -1,4 +1,4 @@
-.flex ul {
+.flex {
 	background-color: pink;
 	width: 300px;
 	display: flex;
@@ -8,7 +8,7 @@
 	height: 50px;
 }
 
-.flex ul li {
+.flex li {
 	width: 100px;
 	flex-shrink: 0;
 }

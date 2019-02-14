@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import styles from './index.module.css'
-console.log(styles)
 class Flex extends Component {
   render() {
 		return (
       <React.Fragment>
         <h2>flex-shink实现横向滚动条</h2>
-        <ul>
+        <ul className={styles.flex}>
           <li>test1</li>
           <li>test22</li>
           <li>test233</li>

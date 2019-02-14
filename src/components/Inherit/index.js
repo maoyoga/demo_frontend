@@ -6,6 +6,7 @@ class Inherit extends Component {
     super(props)
     this.state = {
 		}
+		console.log(this)
   }
 	render() {
 		return (
@@ -165,10 +166,30 @@ class Inherit extends Component {
 		const child2 = new Child2(7, 8)
 		child.run()
 		child2.run()
-
-		console.log(child.constructor) //Father
+		Child.prototype.constructor = Child
+		console.log('child.constructor' ,child.constructor) //Father
+		console.log('child.__proto__', child.__proto__)
 		console.log(father.constructor) //Father
 	}
 }
+
+/**  每一个对象都有__proto__属性，指向对应的构造函数的prototype属性。Class 作为构造函数的语法糖，同时有prototype属性和__proto__属性，因此同时存在两条继承链。
+
+（1）子类的__proto__属性，表示构造函数的继承，总是指向父类。
+
+（2）子类prototype属性的__proto__属性，表示方法的继承，总是指向父类的prototype属性。
+
+*/
+
+class A {
+}
+
+class B extends A {
+	
+}
+console.log(B.__proto__ === A )
+console.log(A.constructor )
+// true
+console.log(B.prototype.__proto__ === A.prototype) // true
 
 export default Inherit

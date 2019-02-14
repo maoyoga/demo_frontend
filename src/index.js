@@ -6,6 +6,7 @@ import Flex from './components/Flex'
 import Jsonp from './components/JSONP'
 import Inherit from './components/Inherit'
 import Home from './home'
+import Promise from './components/Promise'
 // import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
@@ -30,6 +31,10 @@ const routes = [
 			{
 				path: '/inherit',
 				component: Inherit
+			},
+			{
+				path: '/promise',
+				component: Promise
 			}
 		]
 	}

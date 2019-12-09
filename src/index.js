@@ -7,6 +7,9 @@ import Jsonp from './components/JSONP'
 import Inherit from './components/Inherit'
 import Home from './home'
 import Promise from './components/Promise'
+import Debounce from './components/Debounce'
+import Lifecircle from './components/Lifecircle'
+
 // import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
@@ -35,6 +38,14 @@ const routes = [
 			{
 				path: '/promise',
 				component: Promise
+			},
+			{
+				path: '/debounce',
+				component: Debounce
+			},
+			{
+				path: '/lifecircle',
+				component: Lifecircle
 			}
 		]
 	}

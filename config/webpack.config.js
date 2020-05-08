@@ -23,6 +23,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
@@ -144,6 +145,7 @@ module.exports = function(webpackEnv) {
       // changing JS code would still trigger a refresh.
     ].filter(Boolean),
     output: {
+      libraryTarget: "umd",
       // The build folder.
       path: isEnvProduction ? paths.appBuild : undefined,
       // Add /* filename */ comments to generated require()s in the output.
@@ -236,8 +238,14 @@ module.exports = function(webpackEnv) {
       // https://twitter.com/wSokra/status/969633336732905474
       // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
       splitChunks: {
-        chunks: 'all',
-        name: false,
+        cacheGroups: {
+          default: false,
+          vendors: {
+            chunks: 'all',
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+          }
+        }
       },
       // Keep the runtime chunk separated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985
@@ -275,7 +283,7 @@ module.exports = function(webpackEnv) {
         // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
         // please link the files into your node_modules/ and let module-resolution kick in.
         // Make sure your source files are compiled, as they will not be processed in any way.
-        new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+        new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson])
       ],
     },
     resolveLoader: {
@@ -469,6 +477,9 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
+
+      new BundleAnalyzerPlugin(),
+
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
@@ -606,5 +617,19 @@ module.exports = function(webpackEnv) {
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
     performance: false,
+    externals: {
+      "react": {
+        "root": "React",
+        "commonjs2": "react",
+        "commonjs": "react",
+        "amd": "react"
+      },
+      "react-dom": {
+          "root": "ReactDOM",
+          "commonjs2": "react-dom",
+          "commonjs": "react-dom",
+          "amd": "react-dom"
+      }
+    }
   };
 };

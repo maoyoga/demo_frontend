@@ -9,6 +9,7 @@ import Home from './home'
 import Promise from './components/Promise'
 import Debounce from './components/Debounce'
 import Lifecircle from './components/Lifecircle'
+import Hooks from './components/Hooks'
 
 // import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter, Route, Link } from "react-router-dom";
@@ -46,6 +47,10 @@ const routes = [
 			{
 				path: '/lifecircle',
 				component: Lifecircle
+			},
+			{
+				path: '/hooks',
+				component: Hooks
 			}
 		]
 	}

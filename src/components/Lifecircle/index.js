@@ -6,6 +6,7 @@ class Lifecircle extends Component {
         this.state = {
             status: '测试'
         }
+        this.handle = this.handle.bind(this);
     }
     static getDerivedStateFromProps(nextProps, state) {
         console.log('----getDerivedStateFromProps----')
@@ -32,8 +33,12 @@ class Lifecircle extends Component {
                 <div onClick={() => {this.setState({
                     status: '测试更新'
                 })}}> 测试生命周期更新</div>
+                <div onClick={this.handle}>测试方法绑定bind</div>
             </React.Fragment>
         ) 
+    }
+    handle() {
+        console.log('测试方法绑定')
     }
 }
 
